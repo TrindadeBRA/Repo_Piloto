@@ -21,10 +21,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/orders")
-@Tag(name = "Orders (Original)", description = "API original completa — endpoints de referência")
-@io.swagger.v3.oas.annotations.Hidden
-public class OrderController {
+@RequestMapping("/api/with-steering/orders")
+@Tag(name = "With Steering", description = "Endpoints gerados COM steering — padrão ApiResponse, versionamento, documentação Swagger")
+public class WithSteeringOrderController {
 
     private final ListOrdersUseCase listOrdersUseCase;
     private final FindOrderUseCase findOrderUseCase;
@@ -32,11 +31,11 @@ public class OrderController {
     private final UpdateOrderUseCase updateOrderUseCase;
     private final DeleteOrderUseCase deleteOrderUseCase;
 
-    public OrderController(ListOrdersUseCase listOrdersUseCase,
-                          FindOrderUseCase findOrderUseCase,
-                          CreateOrderUseCase createOrderUseCase,
-                          UpdateOrderUseCase updateOrderUseCase,
-                          DeleteOrderUseCase deleteOrderUseCase) {
+    public WithSteeringOrderController(ListOrdersUseCase listOrdersUseCase,
+                                       FindOrderUseCase findOrderUseCase,
+                                       CreateOrderUseCase createOrderUseCase,
+                                       UpdateOrderUseCase updateOrderUseCase,
+                                       DeleteOrderUseCase deleteOrderUseCase) {
         this.listOrdersUseCase = listOrdersUseCase;
         this.findOrderUseCase = findOrderUseCase;
         this.createOrderUseCase = createOrderUseCase;

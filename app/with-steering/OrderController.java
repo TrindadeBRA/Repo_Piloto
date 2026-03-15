@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/orders")
 public class OrderController {
-
     private final ListOrdersUseCase listOrdersUseCase;
     private final FindOrderUseCase findOrderUseCase;
 
