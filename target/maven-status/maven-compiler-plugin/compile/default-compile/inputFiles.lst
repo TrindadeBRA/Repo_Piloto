@@ -1,3 +1,5 @@
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/orders/infrastructure/config/SwaggerConfig.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/orders/interfaces/controller/GlobalExceptionHandler.java
 /home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/orders/application/usecase/ListOrdersUseCase.java
 /home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/orders/domain/repository/OrderRepository.java
 /home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/orders/infrastructure/repository/OrderRepositoryImpl.java

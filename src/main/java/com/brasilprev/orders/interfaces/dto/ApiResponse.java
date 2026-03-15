@@ -1,12 +1,20 @@
 package com.brasilprev.orders.interfaces.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  * Standard envelope for all API responses.
  */
+@Schema(description = "Standard response wrapper for all API endpoints")
 public class ApiResponse<T> {
 
+    @Schema(description = "Indicates if the operation was successful", example = "true")
     private boolean success;
+    
+    @Schema(description = "The actual data returned by the operation")
     private T data;
+    
+    @Schema(description = "Error message if operation failed", example = "Order not found")
     private String message;
 
     private ApiResponse(boolean success, T data, String message) {
