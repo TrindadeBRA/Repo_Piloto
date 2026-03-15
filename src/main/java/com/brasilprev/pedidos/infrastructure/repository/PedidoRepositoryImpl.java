@@ -2,10 +2,9 @@ package com.brasilprev.pedidos.infrastructure.repository;
 
 import com.brasilprev.pedidos.domain.model.Pedido;
 import com.brasilprev.pedidos.domain.repository.PedidoRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -18,8 +17,8 @@ public class PedidoRepositoryImpl implements PedidoRepository {
     }
 
     @Override
-    public Page<Pedido> findAll(Pageable pageable) {
-        return jpaRepository.findAll(pageable);
+    public List<Pedido> findAll() {
+        return jpaRepository.findAll();
     }
 
     @Override

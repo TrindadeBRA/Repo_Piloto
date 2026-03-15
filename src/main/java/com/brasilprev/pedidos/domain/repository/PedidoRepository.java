@@ -1,9 +1,8 @@
 package com.brasilprev.pedidos.domain.repository;
 
 import com.brasilprev.pedidos.domain.model.Pedido;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -12,7 +11,7 @@ import java.util.Optional;
  */
 public interface PedidoRepository {
 
-    Page<Pedido> findAll(Pageable pageable);
+    List<Pedido> findAll();
 
     Optional<Pedido> findById(Long id);
 

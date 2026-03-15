@@ -2,9 +2,9 @@ package com.brasilprev.pedidos.application.usecase;
 
 import com.brasilprev.pedidos.domain.model.Pedido;
 import com.brasilprev.pedidos.domain.repository.PedidoRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ListarPedidosUseCase {
@@ -15,7 +15,7 @@ public class ListarPedidosUseCase {
         this.pedidoRepository = pedidoRepository;
     }
 
-    public Page<Pedido> executar(Pageable pageable) {
-        return pedidoRepository.findAll(pageable);
+    public List<Pedido> executar() {
+        return pedidoRepository.findAll();
     }
 }
