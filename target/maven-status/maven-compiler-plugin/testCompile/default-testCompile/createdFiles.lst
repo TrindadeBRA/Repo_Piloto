@@ -1,2 +1,2 @@
-com/brasilprev/pedidos/application/usecase/BuscarPedidoUseCaseTest.class
-com/brasilprev/pedidos/application/usecase/ListarPedidosUseCaseTest.class
+com/brasilprev/orders/application/usecase/ListOrdersUseCaseTest.class
+com/brasilprev/orders/application/usecase/FindOrderUseCaseTest.class

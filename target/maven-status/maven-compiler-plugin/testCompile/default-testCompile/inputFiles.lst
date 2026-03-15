@@ -1,2 +1,2 @@
-/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/test/java/com/brasilprev/pedidos/application/usecase/ListarPedidosUseCaseTest.java
-/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/test/java/com/brasilprev/pedidos/application/usecase/BuscarPedidoUseCaseTest.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/test/java/com/brasilprev/orders/application/usecase/ListOrdersUseCaseTest.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/test/java/com/brasilprev/orders/application/usecase/FindOrderUseCaseTest.java
