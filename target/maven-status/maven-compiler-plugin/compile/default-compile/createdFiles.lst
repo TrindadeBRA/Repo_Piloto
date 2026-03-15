@@ -1,0 +1,12 @@
+com/brasilprev/pedidos/infrastructure/repository/PedidoJpaRepository.class
+com/brasilprev/pedidos/interfaces/dto/CriarPedidoRequest.class
+com/brasilprev/pedidos/domain/repository/PedidoRepository.class
+com/brasilprev/pedidos/interfaces/controller/PedidoController.class
+com/brasilprev/pedidos/infrastructure/repository/PedidoQueryService.class
+com/brasilprev/pedidos/domain/model/Pedido.class
+com/brasilprev/pedidos/interfaces/dto/ApiResponse.class
+com/brasilprev/pedidos/infrastructure/repository/PedidoRepositoryImpl.class
+com/brasilprev/pedidos/application/usecase/BuscarPedidoUseCase.class
+com/brasilprev/pedidos/PedidosApplication.class
+com/brasilprev/pedidos/infrastructure/config/DataInitializer.class
+com/brasilprev/pedidos/application/usecase/ListarPedidosUseCase.class

@@ -1,0 +1,12 @@
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/domain/repository/PedidoRepository.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/interfaces/controller/PedidoController.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/interfaces/dto/ApiResponse.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/application/usecase/BuscarPedidoUseCase.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/infrastructure/repository/PedidoJpaRepository.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/infrastructure/repository/PedidoRepositoryImpl.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/infrastructure/repository/PedidoQueryService.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/interfaces/dto/CriarPedidoRequest.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/PedidosApplication.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/domain/model/Pedido.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/application/usecase/ListarPedidosUseCase.java
+/home/trindadebra/Documentos/UDS/BrasilPrev/workshop/Repo_Piloto/src/main/java/com/brasilprev/pedidos/infrastructure/config/DataInitializer.java
