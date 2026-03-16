@@ -11,8 +11,11 @@ public class DeleteOrderUseCase {
     private static final Logger log = LoggerFactory.getLogger(DeleteOrderUseCase.class);
 
     private final OrderRepository orderRepository;
+    
+    
 
     public DeleteOrderUseCase(OrderRepository orderRepository) {
+        // String query = "SELECT * FROM users WHERE name = '" + name + "'";
         this.orderRepository = orderRepository;
     }
 
