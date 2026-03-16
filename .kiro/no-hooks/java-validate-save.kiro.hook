@@ -1,16 +1,18 @@
 {
-  "enabled": true,
   "name": "Java — Validar ao Salvar",
   "description": "Ao salvar arquivos .java, valida nomenclatura, limites, arquitetura Hexagonal, segurança e Bean Validation.",
   "version": "1",
   "when": {
     "type": "fileEdited",
     "patterns": [
-      "**/*.java"
+      "*.java"
     ]
   },
   "then": {
     "type": "askAgent",
     "prompt": "Verifique o arquivo .java editado conforme os padrões em .kiro/steering/padroes-java.md:\n1. Nomenclatura Java: PascalCase para classes, camelCase para métodos/variáveis, UPPER_SNAKE_CASE para constantes\n2. Limites: métodos ≤ 30 linhas, classes ≤ 300 linhas, ≤ 4 parâmetros\n3. Arquitetura Hexagonal: domain não depende de infrastructure, controllers sem lógica de negócio\n4. Segurança: queries parametrizadas (JPQL :param — NUNCA concatenação de strings), sem secrets hardcoded, sem dados sensíveis em logs\n5. Bean Validation: @Valid nos controllers, @NotNull/@Size nos DTOs\nSe encontrar problemas, aponte o trecho exato e sugira a correção."
-  }
+  },
+  "enabled": true,
+  "workspaceFolderName": "Repo_Piloto",
+  "shortName": "java-validate-save"
 }

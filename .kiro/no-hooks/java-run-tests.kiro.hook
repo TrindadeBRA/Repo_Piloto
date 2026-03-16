@@ -1,5 +1,4 @@
 {
-  "enabled": true,
   "name": "Java — Rodar Testes",
   "description": "Após o agente terminar, roda os testes do projeto Java com Maven ou Gradle.",
   "version": "1",
