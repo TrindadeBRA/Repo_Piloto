@@ -1,6 +1,7 @@
 package com.brasilprev.orders.application.usecase;
 
 import com.brasilprev.orders.domain.model.Order;
+import com.brasilprev.orders.domain.model.OrderStatus;
 import com.brasilprev.orders.domain.repository.OrderRepository;
 import com.brasilprev.orders.interfaces.dto.UpdateOrderRequest;
 import org.springframework.stereotype.Service;
@@ -18,15 +19,7 @@ public class UpdateOrderUseCase {
         Order existingOrder = orderRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Order not found: " + id));
 
-        // Update fields
-        Order updatedOrder = new Order(
-            request.getCustomerName(),
-            request.getStatus(),
-            request.getTotalAmount()
-        );
-        
-        // Preserve the original ID and creation date by updating the existing order
-        existingOrder.setStatus(request.getStatus());
+        existingOrder.setStatus(OrderStatus.fromString(request.getStatus()));
         
         return orderRepository.save(existingOrder);
     }

@@ -19,9 +19,10 @@ public class Order {
     @Schema(description = "Name of the customer who placed the order", example = "John Silva")
     private String customerName;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    @Schema(description = "Current status of the order", example = "PENDING", allowableValues = {"PENDING", "APPROVED", "CANCELLED"})
-    private String status;
+    @Schema(description = "Current status of the order", example = "PENDENTE", allowableValues = {"PENDENTE", "CONFIRMADO", "ENVIADO", "ENTREGUE"})
+    private OrderStatus status;
 
     @Column(nullable = false)
     @Schema(description = "Total amount of the order", example = "150.00")
@@ -33,7 +34,7 @@ public class Order {
 
     public Order() {}
 
-    public Order(String customerName, String status, BigDecimal totalAmount) {
+    public Order(String customerName, OrderStatus status, BigDecimal totalAmount) {
         this.customerName = customerName;
         this.status = status;
         this.totalAmount = totalAmount;
@@ -42,9 +43,9 @@ public class Order {
 
     public Long getId() { return id; }
     public String getCustomerName() { return customerName; }
-    public String getStatus() { return status; }
+    public OrderStatus getStatus() { return status; }
     public BigDecimal getTotalAmount() { return totalAmount; }
     public LocalDateTime getCreatedAt() { return createdAt; }
 
-    public void setStatus(String status) { this.status = status; }
+    public void setStatus(OrderStatus status) { this.status = status; }
 }

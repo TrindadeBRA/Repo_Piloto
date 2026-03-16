@@ -1,6 +1,7 @@
 package com.brasilprev.orders.application.usecase;
 
 import com.brasilprev.orders.domain.model.Order;
+import com.brasilprev.orders.domain.model.OrderStatus;
 import com.brasilprev.orders.domain.repository.OrderRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,13 +29,13 @@ class FindOrderUseCaseTest {
     @Test
     @DisplayName("should return order when id exists")
     void should_returnOrder_when_idExists() {
-        Order order = new Order("John Silva", "PENDING", new BigDecimal("150.00"));
+        Order order = new Order("John Silva", OrderStatus.PENDENTE, new BigDecimal("150.00"));
         when(orderRepository.findById(1L)).thenReturn(Optional.of(order));
 
         Order result = findOrderUseCase.execute(1L);
 
         assertThat(result.getCustomerName()).isEqualTo("John Silva");
-        assertThat(result.getStatus()).isEqualTo("PENDING");
+        assertThat(result.getStatus()).isEqualTo(OrderStatus.PENDENTE);
     }
 
     @Test

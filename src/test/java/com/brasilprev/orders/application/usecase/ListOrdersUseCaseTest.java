@@ -1,6 +1,7 @@
 package com.brasilprev.orders.application.usecase;
 
 import com.brasilprev.orders.domain.model.Order;
+import com.brasilprev.orders.domain.model.OrderStatus;
 import com.brasilprev.orders.domain.repository.OrderRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,8 +30,8 @@ class ListOrdersUseCaseTest {
     @DisplayName("should return list of orders when repository has data")
     void should_returnListOfOrders_when_repositoryHasData() {
         List<Order> orders = List.of(
-                new Order("John Silva", "PENDING", new BigDecimal("150.00")),
-                new Order("Mary Souza", "APPROVED", new BigDecimal("320.50"))
+                new Order("John Silva", OrderStatus.PENDENTE, new BigDecimal("150.00")),
+                new Order("Mary Souza", OrderStatus.CONFIRMADO, new BigDecimal("320.50"))
         );
 
         when(orderRepository.findAll()).thenReturn(orders);

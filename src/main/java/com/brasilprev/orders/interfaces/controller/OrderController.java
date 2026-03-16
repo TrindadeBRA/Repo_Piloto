@@ -3,11 +3,15 @@ package com.brasilprev.orders.interfaces.controller;
 import com.brasilprev.orders.application.usecase.CreateOrderUseCase;
 import com.brasilprev.orders.application.usecase.DeleteOrderUseCase;
 import com.brasilprev.orders.application.usecase.FindOrderUseCase;
+import com.brasilprev.orders.application.usecase.GetAllowedTransitionsUseCase;
 import com.brasilprev.orders.application.usecase.ListOrdersUseCase;
+import com.brasilprev.orders.application.usecase.TransitionOrderStatusUseCase;
 import com.brasilprev.orders.application.usecase.UpdateOrderUseCase;
 import com.brasilprev.orders.domain.model.Order;
+import com.brasilprev.orders.domain.model.OrderStatus;
 import com.brasilprev.orders.interfaces.dto.ApiResponse;
 import com.brasilprev.orders.interfaces.dto.CreateOrderRequest;
+import com.brasilprev.orders.interfaces.dto.TransitionStatusRequest;
 import com.brasilprev.orders.interfaces.dto.UpdateOrderRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -31,17 +35,23 @@ public class OrderController {
     private final CreateOrderUseCase createOrderUseCase;
     private final UpdateOrderUseCase updateOrderUseCase;
     private final DeleteOrderUseCase deleteOrderUseCase;
+    private final TransitionOrderStatusUseCase transitionOrderStatusUseCase;
+    private final GetAllowedTransitionsUseCase getAllowedTransitionsUseCase;
 
     public OrderController(ListOrdersUseCase listOrdersUseCase,
                           FindOrderUseCase findOrderUseCase,
                           CreateOrderUseCase createOrderUseCase,
                           UpdateOrderUseCase updateOrderUseCase,
-                          DeleteOrderUseCase deleteOrderUseCase) {
+                          DeleteOrderUseCase deleteOrderUseCase,
+                          TransitionOrderStatusUseCase transitionOrderStatusUseCase,
+                          GetAllowedTransitionsUseCase getAllowedTransitionsUseCase) {
         this.listOrdersUseCase = listOrdersUseCase;
         this.findOrderUseCase = findOrderUseCase;
         this.createOrderUseCase = createOrderUseCase;
         this.updateOrderUseCase = updateOrderUseCase;
         this.deleteOrderUseCase = deleteOrderUseCase;
+        this.transitionOrderStatusUseCase = transitionOrderStatusUseCase;
+        this.getAllowedTransitionsUseCase = getAllowedTransitionsUseCase;
     }
 
     @GetMapping
@@ -109,5 +119,35 @@ public class OrderController {
             @PathVariable Long id) {
         deleteOrderUseCase.execute(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/{id}/status")
+    @Operation(summary = "Transition order status", description = "Transition the status of an existing order")
+    @ApiResponses(value = {
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Status transitioned successfully"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "Invalid status value"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Order not found"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "422", description = "Invalid status transition")
+    })
+    public ResponseEntity<ApiResponse<Order>> transitionStatus(
+            @Parameter(description = "Order ID", required = true, example = "1")
+            @PathVariable Long id,
+            @Valid @RequestBody TransitionStatusRequest request) {
+        OrderStatus newStatus = OrderStatus.fromString(request.getStatus());
+        Order order = transitionOrderStatusUseCase.execute(id, newStatus);
+        return ResponseEntity.ok(ApiResponse.ok(order));
+    }
+
+    @GetMapping("/{id}/status/transitions")
+    @Operation(summary = "Get allowed status transitions", description = "Get the list of allowed status transitions for an order")
+    @ApiResponses(value = {
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Successfully retrieved allowed transitions"),
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Order not found")
+    })
+    public ResponseEntity<ApiResponse<List<OrderStatus>>> getAllowedTransitions(
+            @Parameter(description = "Order ID", required = true, example = "1")
+            @PathVariable Long id) {
+        List<OrderStatus> transitions = getAllowedTransitionsUseCase.execute(id);
+        return ResponseEntity.ok(ApiResponse.ok(transitions));
     }
 }
