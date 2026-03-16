@@ -1,6 +1,8 @@
 # Pedidos API — Repo Piloto
 
-Projeto de exemplo para o Workshop Kiro. API REST de pedidos em Java 17 + Spring Boot 3, com arquitetura Hexagonal.
+> Repositório criado para a apresentação do Kiro para a BrasilPrev.
+
+Projeto de exemplo para demonstrar as funcionalidades do Kiro. API REST de pedidos em Java 17 + Spring Boot 3, com arquitetura Hexagonal.
 
 ## Stack
 
