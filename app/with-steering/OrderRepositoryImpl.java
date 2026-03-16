@@ -31,4 +31,9 @@ public class OrderRepositoryImpl implements OrderRepository {
     public Order save(Order order) {
         return jpaRepository.save(order);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        jpaRepository.deleteById(id);
+    }
 }
