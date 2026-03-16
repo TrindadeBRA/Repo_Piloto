@@ -30,6 +30,30 @@ src/main/java/com/brasilprev/pedidos/
     └── dto/            # DTOs de request/response
 ```
 
+## Banco de dados de teste (PostgreSQL)
+
+O projeto usa H2 em memória por padrão, mas há um PostgreSQL disponível via Docker para testes com banco real.
+
+```bash
+docker compose -f docker/docker-compose.yml up -d
+```
+
+Isso sobe um PostgreSQL na porta `5433` com as seguintes credenciais:
+
+| Parâmetro | Valor |
+|-----------|-------|
+| Host | `localhost` |
+| Porta | `5433` |
+| Database | `brasilprev_demo` |
+| Usuário | `demo` |
+| Senha | `demo123` |
+
+Para derrubar:
+
+```bash
+docker compose -f docker/docker-compose.yml down
+```
+
 ## Como rodar
 
 ```bash
